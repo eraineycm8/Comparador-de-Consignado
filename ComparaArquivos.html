@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Comparação de Arquivos CSV</title>
+  <!-- Link para o Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1>Comparação de Arquivos CSV</h1>
+    <label for="rhFile" class="form-label">Selecione o arquivo RH:</label>
+    <div class="input-group mb-3">
+      <input type="file" id="rhFile" accept=".csv" class="form-control">
+      <input type="checkbox" aria-label="Carregamento do RH completo" id="ckdRH" disabled>
+    </div>
+    
+    <label for="bancoFile" class="form-label">Selecione o arquivo do Banco:</label>
+    <div class="input-group mb-3">
+      <input type="file" id="bancoFile" accept=".csv" class="form-control">
+      <input type="checkbox" aria-label="Carregamento do Banco completo" id="ckdBanco" disabled>
+    </div>
+    <button type="button" onclick="lerArquivos()" class="btn btn-primary" id="btnImportar">lerArquivos</button>
+    <button type="button" onclick="listarRH()" class="btn btn-primary" id="btnListarRh" disabled>Exibir Arquivo RH</button>
+    <button type="button" onclick="listarBanco()" class="btn btn-primary" id="btnListarBanco" disabled>Exibir Arquivo Banco</button>
+    <button type="button" onclick="comparar()" class="btn btn-primary" id="btnComparar">Comparar</button>
+
+    
+    <div id="results"></div> 
+  </div>
+  <!-- Link para o Bootstrap JS e dependências do jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+  <!-- Script JavaScript personalizado -->
+  <script src="script.js"></script>
+</body>
+</html>
