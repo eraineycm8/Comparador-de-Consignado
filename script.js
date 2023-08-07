@@ -189,27 +189,33 @@ function comparar() {
         const dif = pessoaRH.total - pessoaBanco.total;
         let indiceToRemoveBanco = [];
         let compBanco = pessoaBanco.valores.slice();
-        
-        pessoaRH.valores.forEach(valorRH => {
+
+        pessoaRH.valores.forEach((valorRH, indexRHH) => {
+          let valorDisponivel = true;
           compBanco.forEach((valorCompBanco,indexCompBanco) => {
-            if (valorRH==valorCompBanco){
+
+            if (valorRH==valorCompBanco && valorDisponivel && !indiceToRemoveBanco.includes(indexCompBanco)){
               indiceToRemoveBanco.push(indexCompBanco);
+              valorDisponivel = false;
+              //console.log(`RH [${valorRH}]==[${valorCompBanco}] BC, false, ${indexRHH} ${indexCompBanco}`);
             }
           });
         });
-        
+
         indiceToRemoveBanco.reverse().forEach(index => {
           compBanco.splice(index, 1);
-        });  
+        });
         
         //CHECANDO O RH
         let indiceToRemoveRH = [];
         let compRH = pessoaRH.valores.slice();        
 
         pessoaBanco.valores.forEach(valorBanco => {
+          let valorDisponivel = true;
           compRH.forEach((valorCompRH,indexCompRH) => {
-            if (valorBanco==valorCompRH){
+            if (valorBanco==valorCompRH && valorDisponivel && !indiceToRemoveRH.includes(indexCompRH)){
               indiceToRemoveRH.push(indexCompRH);
+              valorDisponivel = false;
             }
           });
         });
