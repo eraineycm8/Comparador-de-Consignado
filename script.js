@@ -197,7 +197,6 @@ function comparar() {
             if (valorRH==valorCompBanco && valorDisponivel && !indiceToRemoveBanco.includes(indexCompBanco)){
               indiceToRemoveBanco.push(indexCompBanco);
               valorDisponivel = false;
-              //console.log(`RH [${valorRH}]==[${valorCompBanco}] BC, false, ${indexRHH} ${indexCompBanco}`);
             }
           });
         });
